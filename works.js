@@ -17,7 +17,7 @@ const works = [
     category: 'AI 漫剧 · 古风剧情',
     duration: '2:25',
     cover: 'assets/images/yinuo-hongzhuang.webp',
-    video: 'assets/videos/yinuo-hongzhuang.mp4',
+    video: 'assets/videos/yinuo-hongzhuang.mp4?v=2',
     description: '从江南水乡的初遇讲起，以一方绣帕串起两人的情缘。',
   },
   {
