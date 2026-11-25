@@ -1,0 +1,33 @@
+.manage-header { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.manage-shell { max-width: 1000px; padding-block: clamp(34px, 6vw, 76px); }
+.manage-intro { margin-bottom: 28px; }
+.manage-intro h1 { font-size: clamp(44px, 6vw, 80px); font-weight: 900; letter-spacing: -.06em; line-height: 1.05; }
+.manage-intro p { margin-top: 13px; color: var(--muted); line-height: 1.75; }
+.manage-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.manage-form, .publish-guide, .publish-progress { border: 1px solid var(--ink); padding: clamp(18px, 3vw, 31px); }
+.manage-form, .publish-progress { background: #fbf8ef; }
+.manage-form { display: grid; gap: 8px; }
+.manage-form label { font-size: 15px; font-weight: 800; }
+.manage-form label span { margin-inline-start: 4px; color: var(--muted); font-size: 12px; font-weight: 400; }
+.manage-form input, .manage-form textarea { min-width: 0; padding: 11px 12px; border: 1px solid #a8a498; background: #fffdf7; color: var(--ink); font: inherit; font-size: 16px; }
+.manage-form input { min-height: 46px; margin-bottom: 10px; }
+.manage-form textarea { min-height: 110px; resize: vertical; line-height: 1.6; }
+.manage-form .button { margin-top: 12px; justify-self: start; }
+.manage-page button.button { border: 1px solid transparent; }
+.manage-page button:disabled { opacity: .6; cursor: default; }
+.publish-guide { background: var(--yellow); }
+.publish-guide h2, .publish-progress h2 { font-size: clamp(22px, 3vw, 30px); letter-spacing: -.045em; }
+.publish-guide ol { padding-inline-start: 21px; margin-block: 17px 6px; font-size: 14px; line-height: 1.7; }
+.publish-guide li + li { margin-top: 10px; }
+.publish-guide .text-link { margin-top: 6px; }
+.public-note { margin-top: 12px; font-size: 13px; line-height: 1.65; }
+.publish-progress { margin-top: 22px; scroll-margin-top: 18px; }
+.pending-title { margin-top: 13px; font-weight: 800; overflow-wrap: anywhere; }
+#publish-status { margin-top: 7px; color: var(--muted); line-height: 1.65; }
+.progress-actions .text-link { background: none; border: 0; padding-inline: 0; text-align: start; }
+.progress-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 17px; margin-top: 12px; }
+@media (max-width: 680px) {
+  .manage-header { min-height: 65px; }
+  .manage-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .manage-intro p { font-size: 14px; }
+}

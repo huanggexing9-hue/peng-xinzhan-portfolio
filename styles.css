@@ -184,6 +184,8 @@ h2 { font-weight: 900; letter-spacing: -.045em; font-size: clamp(39px, 4.3vw, 66
 .email-button:hover { background: white; }
 .site-footer { display: flex; gap: 20px; justify-content: space-between; padding-block: 23px 28px; color: var(--muted); font-size: 12px; font-weight: 600; }
 
+.footer-links { display: flex; flex-wrap: wrap; justify-content: end; gap: 8px 18px; }
+
 .work-dialog { width: min(850px, 100% - 28px); max-height: calc(100% - 26px); border: 1px solid var(--ink); padding: 0; overflow: auto; background: var(--paper); color: var(--ink); }
 .work-dialog::backdrop { background: #141725cf; }
 .dialog-inner { position: relative; }

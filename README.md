@@ -1,16 +1,15 @@
 # 彭新展个人作品集
 
-双击 `index.html` 即可在浏览器中预览。整个目录可以部署到静态网站托管，网页、本地图片和 MP4 需要一起上传。
+双击 `index.html` 可以预览本地的初始作品。已通过管理页上传的作品以线上版本为准。
 
-## 增加一支短片
+## 上传视频
 
-1. 把网站播放用的 MP4 放进 `assets/videos/`，封面放进 `assets/images/`。建议用英文文件名。
-2. 在 `works.js` 的 `works` 数组末尾复制一个短片条目，给 `id` 填写独立的英文标识，再更新标题、分类、时长、媒体路径及简介。
-3. 竖屏片建议设置 `portrait: true`，用 `poster` 指向一张竖版静帧。`cover` 为列表使用的横版封面。
-4. 刷新页面检查封面、筛选和播放。
+1. 打开[作品管理](https://huanggexing9-hue.github.io/peng-xinzhan-portfolio/manage.html)，填好作品标题，可选填分类和简介。
+2. 点「前往 GitHub 上传视频」，用 `huanggexing9-hue` 账号登录。在附件区域选择一支 MP4 或 MOV，最长 10 分钟、最大 500 MB。
+3. 上传完成后点 **Publish release**。回到作品管理点「检查上线」。发布完成后，作品集会显示封面和播放入口。
 
-`index.html` 包含个人简介、经历及联系信息。Web 项目也可以在 `works.js` 中维护，设置 `link` 后，详情页会显示访问入口。
+每次新增作品用一个发布条目。可以在 GitHub 的 Releases 页面找到该作品，修改标题、简介或更换附件。
 
-## 发布
+## 维护网站
 
-线上地址：[彭新展个人作品集](https://huanggexing9-hue.github.io/peng-xinzhan-portfolio/)。仓库的 `main` 分支用于 GitHub Pages 发布。更新作品后，把改动和媒体文件提交并推送到 `main`。
+首页内容在 `index.html`，原有作品和 Web 项目在 `works.js`。GitHub Actions 从 `main` 构建网站，并把已发布的视频处理成网页播放用的 MP4。源视频来自仓库的 Releases。同步失败时可在 Actions 页面手动运行「发布作品集」。

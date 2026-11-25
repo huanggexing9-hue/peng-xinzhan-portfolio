@@ -1,3 +1,4 @@
+const portfolioWorks = [...(typeof uploadedWorks === 'undefined' ? [] : uploadedWorks), ...works];
 const grid = document.querySelector('#work-grid');
 const filterButtons = [...document.querySelectorAll('[data-filter]')];
 const workStatus = document.querySelector('#work-status');
@@ -28,6 +29,7 @@ function textElement(tag, className, text) {
 function makeCard(work) {
   const card = document.createElement('article');
   card.className = 'work-card';
+  card.id = work.id;
   const visual = document.createElement('div');
   visual.className = `work-visual work-visual--${work.id}`;
   if (work.type === 'video') {
@@ -66,7 +68,7 @@ function makeCard(work) {
 }
 
 function renderWorks(filter) {
-  const visible = works.filter(work => filter === 'all' || work.type === filter);
+  const visible = portfolioWorks.filter(work => filter === 'all' || work.type === filter);
   grid.replaceChildren(...visible.map(makeCard));
   workStatus.textContent = `显示 ${visible.length} 项作品`;
   for (const button of filterButtons) {
@@ -105,7 +107,9 @@ function showWork(work, trigger) {
   dialogMedia.replaceChildren();
   document.querySelector('#dialog-title').textContent = work.title;
   document.querySelector('#dialog-category').textContent = work.category;
-  document.querySelector('#dialog-description').textContent = work.description;
+  const description = document.querySelector('#dialog-description');
+  description.textContent = work.description;
+  description.hidden = !work.description;
   dialogLink.hidden = !work.link;
   if (work.link) {
     dialogLink.href = work.link;
@@ -134,7 +138,7 @@ for (const button of filterButtons) {
 document.addEventListener('click', event => {
   const trigger = event.target.closest('[data-open]');
   if (!trigger) return;
-  const work = works.find(entry => entry.id === trigger.dataset.open);
+  const work = portfolioWorks.find(entry => entry.id === trigger.dataset.open);
   if (work) showWork(work, trigger);
 });
 
@@ -159,7 +163,12 @@ dialog.addEventListener('close', () => {
   lastTrigger?.focus({ preventScroll: true });
 });
 
-const filmCount = works.filter(work => work.type === 'video').length;
-const projectCount = works.filter(work => work.type === 'web').length;
+const filmCount = portfolioWorks.filter(work => work.type === 'video').length;
+const projectCount = portfolioWorks.filter(work => work.type === 'web').length;
 document.querySelector('#work-count').textContent = `${filmCount} 支短片 / ${projectCount} 个 Web 项目`;
 renderWorks('all');
+const targetWork = new URLSearchParams(location.search).get('show');
+if (targetWork) {
+  const card = document.getElementById(targetWork);
+  if (card?.matches('.work-card')) card.scrollIntoView({ block: 'center' });
+}
